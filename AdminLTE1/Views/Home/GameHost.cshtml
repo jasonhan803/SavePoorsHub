@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "Game Organizer";
+    ViewBag.Description = "SP Tools";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-lg-4">
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <h3><span id="gameoffer"></span>/<sapn id="gamenum"></sapn></h3>
+
+                <p>Games Organized</p>
+            </div>
+            <div class="inner">
+                <h3 id="gamebalance2">8.999 EOS</h3>
+
+                <p>Balance in Game </p>
+            </div>
+            <div class="icon">
+                <i class="fa  fa-user"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                Organizer info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <div class="box box-solid box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Launch a Game</h3>
+            </div>
+            <div class="box-body">
+
+
+
+                <div class="form-group col-xs-12 col-lg-6">
+                    <label>Base Bet (in EOS):</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa  fa-server"></i>
+                        </div>
+                        <input type="text" class="form-control" id="betpool" value="1.0" data-inputmask="'mask': '9{1,5}.9{1,4}'" data-mask="*">
+                    </div>
+                </div>
+                <div class="form-group col-xs-12 col-lg-6">
+                    <label> Game Duration(in hours):</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa  fa-server"></i>
+                        </div>
+                        <input type="text" class="form-control" id="gametime" value="1" data-inputmask="'mask': '9{1,1}'" data-mask="*">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button class="center-block  btn btn-warning" style="width:260px" type="button" id="startgame">Start</button>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<h1 class="page-header">Running Games</h1>
+<div class="row" id="gamecontainer">
+    @*<div class="col-xs-12 col-md-3">
+        <div class="box box-solid  box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Game ID</h3>
+                <div class="box-tools pull-right">
+                    <!-- Buttons, labels, and many other things can be placed here! -->
+                    <!-- Here is a label for example -->
+                    <span class="label label-warning">Active</span>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                Players Number: 11<br />
+                Total Bets: 15 EOS<br />
+                Total Cards: 77
+
+            </div>
+            <div class="form-group col-xs-12 col-lg-12">
+                <div class="progress " style="height: 10px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 70%" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="progress-description">
+                    <span id="timeused">24</span>% min left.
+                </span>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button class="btn btn-primary" type="button" id="gamedetails">DETAILS</button>
+                <button class="btn btn-primary" type="button" id="closegame">CLOSE</button>
+            </div>
+            <!-- box-footer -->
+        </div>
+        <!-- /.box -->
+    </div>*@
+</div>
+<div class="row" id="detailtable">
+    <div class="col-xs-12 col-md-12">
+        <table class="table table-bordered table-dark table-striped" id="detailtableform">
+            <thead class="bg-blue">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Player Account</th>
+                    <th scope="col">Stars</th>
+                    <th scope="col">Cards</th>
+                </tr>
+            </thead>
+            @*<tbody>
+                <tr><th scope="row">0</th><td>yangjian1111</td><td>3</td><td>4/4/4</td></tr>
+                <tr><th scope="row">0</th><td>yfngjian1111</td><td>4</td><td>4/5/4</td></tr>
+            </tbody>*@
+
+        </table>
+    </div>
+</div>
+@*Modal for successful trx*@
+<div class="modal fade" id="SuccessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Transaction succeed !!</h4>
+            </div>
+            <div class="modal-body">
+                <h1><i class="fa fa-check-circle-o"></i></h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*Modal for fail trx*@
+<div class="modal fade" id="FailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="center-block"><i class="fa  fa-times-circle-o"></i>&nbsp; Transaction Failed</h2>
+            </div>
+            <div class="modal-body">
+                <h4><span id="failinfo"></span></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

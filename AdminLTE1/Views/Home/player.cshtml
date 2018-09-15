@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Game Player";
+    ViewBag.Description = "SP Tools";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-lg-4">
+        <div class="small-box bg-purple">
+            @*<div class="inner">
+                    <h3><span id="gameoffer"></span>/<sapn id="gamenum"></sapn></h3>
+
+                    <p>Games Organized</p>
+                </div>*@
+            <div class="inner">
+                <h3 id="gamebalance2">0 EOS</h3>
+
+                <p>Balance in Game </p>
+                <a class="btn btn-primary btn-danger" id="register" href="#" role="button">Register in <strong>Save Poors</strong></a>
+            </div>
+            <div class="icon">
+                <i class="fa  fa-user"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                Organizer info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <div class="box box-solid box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Top-up EOS</h3>
+            </div>
+            <div class="box-body">
+
+                <div class="form-group col-xs-12 col-lg-12">
+                    <label>Deposit (in EOS):</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-money"> EOS</i>
+                        </div>
+                        <input type="text" class="form-control" id="depositamount" value="8.0" data-inputmask="'mask': '9{1,5}.9{1,4}'" data-mask="*">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button class="center-block  btn btn-warning" style="width:260px" type="button" id="deposit">Deposit</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <div class="box box-solid box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Withdraw EOS</h3>
+            </div>
+            <div class="box-body">
+
+                <div class="form-group col-xs-12 col-lg-12">
+                    <label>Withdraw (in EOS):</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa  fa-money"> EOS</i>
+                        </div>
+                        <input type="text" class="form-control" id="withdramount" value="8.0" data-inputmask="'mask': '9{1,5}.9{1,4}'" data-mask="*">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button class="center-block  btn btn-warning" style="width:260px" type="button" id="withdraw">Withdraw</button>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="page-header">Join Game & Have FUN!!!</h1>
+<div class="row col-xs-12 col-md-12">
+    <div class="box box-solid box-info">
+        <div class="box-header">
+            <h3 class="box-title">Enter Game</h3>
+
+        </div>
+        <div class="box-body">
+            <p class="lead"><strong>Save Poors</strong> is a very simple but interesting card game. Join the game and have fun.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Join the Game</a>
+        </div>
+
+        </div>
+    </div>
+
+    @*Modal for successful trx*@
+    <div class="modal fade" id="SuccessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-success" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Transaction succeed !!</h4>
+                </div>
+                <div class="modal-body">
+                    <h1><i class="fa fa-check-circle-o"></i>The transaction is successful!</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Modal for fail trx*@
+    <div class="modal fade" id="FailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-danger" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="center-block"><i class="fa  fa-times-circle-o"></i>&nbsp; Transaction Failed</h2>
+                </div>
+                <div class="modal-body">
+                    <h4><span id="failinfo"></span></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

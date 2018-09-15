@@ -1,0 +1,190 @@
+﻿<header class="main-header">
+    @* BEGIN Logo *@
+    <a href="@Url.Action("Index", "Home")" class="logo">
+        @* Mini logo for sidebar 50x50 pixels *@
+        <span class="logo-mini"><b>S</b>P</span>
+        @* Logo for regular state and mobile devices *@
+        <span class="logo-lg"><b>Save</b>Poors</span>
+    </a>
+    @* END Logo *@
+    @* BEGIN Header *@
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                @* BEGIN Messages *@
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa  fa-cubes"></i>
+                        @*<span class="label label-success">4</span>*@
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header"> <h4><span class="fa fa-cubes"></span> &nbsp;Resources</h4></li>
+                        <li>
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <span class="fa fa-cube"></span>
+                                        </div>
+                                        <h4>
+                                            CPU
+                                            <small id="headercpu"><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p style="word-wrap:normal">CPU is computing resources for DAPPs</p>
+                                    </a>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <span class="fa fa-cube"></span>
+                                        </div>
+                                        <h4>
+                                            Net
+                                            <small id="headernet"><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Net is network resources for DAPPs</p>
+                                    </a>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <span class="fa fa-cube"></span>
+                                        </div>
+                                        <h4>
+                                            RAM
+                                            <small id="headerram"><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>memory is the space used by DAPPs</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+                @* END Messages *@
+                @* BEGIN Notifications *@
+                @*<li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 10 notifications</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">View all</a></li>
+                        </ul>
+                    </li>*@
+                @* END Notifications *@
+                @* BEGIN Tasks *@
+                <li class="dropdown tasks-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-money"></i>
+                        <span class="label label-danger" id="balance2"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header"><h4><i class="fa fa-money"></i>&nbsp; Balance</h4></li>
+                        <li>
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <h3>
+                                            <i class="fa fa-credit-card"></i>&nbsp;Balance
+                                            <span class="pull-right" id="balance"></span>
+                                        </h3>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <h3>
+                                            <i class="fa fa-credit-card"></i>&nbsp;Balance in <strong>Saving Poors</strong>
+                                            <span class="pull-right" id="gamebalance">66</span>
+                                        </h3>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer">
+                            <a href="#">View all tasks</a>
+                        </li>
+                    </ul>
+                </li>
+                @* END Tasks *@
+                @* BEGIN User Account Menu *@
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @*<img src="~/Content/img/user.jpg" class="user-image" alt="User Image">*@
+                        <span class="hidden-xs" id="username2">Alexander Pierce</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-header">
+                            <img src="~/Content/img/eoscoin.png" class="img-circle" alt="User Image">
+
+                            <p id="username">
+
+
+                            </p>
+                            <p> <small id="joined">No Member</small> </p>
+
+                        </li>
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Followers</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Sales</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Friends</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                @* END User Account Menu *@
+                @* BEGIN Control Sidebar Toggle Button *@
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+                @* END Control Sidebar Toggle Button *@
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<div class="modal fade modal-danger" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Scatter Extention Missing</h4>
+            </div>
+            <div class="modal-body">
+                <i class="fa fa-exclamation-triangle"></i>&nbsp; You chrome don't have <stong>Scatter</stong> extention installed. Please download from  <a href="https://www.crx4chrome.com/down/94760/crx/">here</a>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
