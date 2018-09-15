@@ -31,7 +31,7 @@ namespace AdminLTE1.App_Start
                 .Include("~/Content/js/local.js")
                 //.Include(@"~/https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
                 .Include("~/Content/js/init.js"));
-            //.Include(@"~/https://cdn.jsdelivr.net/npm/eosjs@16.0.0/lib/eos.js"));
+            //.Include(@"~/https://cdn.jsdelivr.net/npm/eosjs@16.0.0/lib/eos.js"));  
 
 #if DEBUG
             BundleTable.EnableOptimizations = false;
