@@ -16,7 +16,7 @@ namespace AdminLTE1.Controllers
 
         public ActionResult Resource()
         {
-            return View("Resource");
+            return View("Resource");  
         }
 
         public ActionResult Gamehost()
