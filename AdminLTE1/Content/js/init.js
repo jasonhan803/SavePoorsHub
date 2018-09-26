@@ -41,6 +41,9 @@
         $('#supernodelist').val(Cookies.get('supernode'));
 
     }
+    else {
+        $('#supernodelist').val('eoslaomaocom');
+    }
     console.log($('#supernodelist').val());
     
     var nodeurl = mainnetlist[$('#supernodelist').val()].protocol + '://' + mainnetlist[$('#supernodelist').val()].link + ':' +  mainnetlist[$('#supernodelist').val()].port;
@@ -55,7 +58,7 @@
     }
 
     $('#delegate').on('click', function () {
-        var $btn = $(this).button('loading')
+        var $btn = $(this).button('loading');
         var creator = $("#stacksend").val();
         var receiveree = $("#stackreceiv").val();
         var cpu = changeDecimalBuZero($("#stackcpu").val(), 4) + ' EOS';
@@ -106,7 +109,7 @@
     });
 
     $('#undelegate').on('click', function () {
-        var $btn = $(this).button('loading')
+        var $btn = $(this).button('loading');
 
         var creator = $("#stakeowner").val();
         var receiveree = $("#stakeholder").val();
@@ -153,7 +156,7 @@
     });
 
     $('#buyram').on('click', function () {
-        var $btn = $(this).button('loading')
+        var $btn = $(this).button('loading');
 
         var creator = $("#rambuyer").val();
         var receiveree = $("#ramuser").val();
@@ -196,8 +199,53 @@
         })
     });
 
+    $('#transfer').on('click', function () {
+        var $btn = $(this).button('loading');
+
+        var amount = $("#transferamount").val();
+        var transto = $("#transferto").val();
+        var memo = $("#tag").val();
+
+        scatter.getIdentity({ accounts: [eosNetwork] }).then((identity) => {
+            //1. get EOS account name
+            const account = scatter.identity.accounts.find(acc => acc.blockchain === 'eos');
+            console.log("identity info" + identity);
+            const options = {
+                authorization: [{ actor: account.name, permission: 'active' }],//'user@active',
+                broadcast: true,//,
+                sign: true
+            };
+            //get EOS instance
+            const eos = scatter.eos(eosNetwork, Eos, options, "https");
+            const requiredFields = {
+                accounts: [eosNetwork]
+            };
+            eos.transaction(
+                tr => {
+                    tr.transfer({
+                        from: account.name,
+                        to: transto,
+                        quantity: changeDecimalBuZero(amount, 4) + ' EOS',
+                        memo: memo
+                    });
+                    // business logic...
+
+                }).then(trx => {
+                    console.log("get siged transaction data: ", trx);
+                    console.log('transfer completed.');
+                    $btn.button('reset');
+                    $('#SuccessModal').modal('show');
+                }).catch(
+                    e => {
+                        console.log("error", e);
+                        $btn.button('reset');
+                        $('#FailModal').modal('show');
+                    });
+        });
+    });
+
     $('#sellram').on('click', function () {
-        var $btn = $(this).button('loading')
+        var $btn = $(this).button('loading');
 
         var creator = $("#ramseller").val();
         var ram = $("#ramtosell").val();
@@ -239,7 +287,7 @@
     });
 
     $('#refund').on('click', function () {
-        var $btn = $(this).button('loading')
+        var $btn = $(this).button('loading');
 
         var creator = account.name;
         //var ram = $("#refundeos").val();
@@ -716,6 +764,7 @@
                         console.log(result);
                         $("#balance").text(result.core_liquid_balance);
                         $("#balance2").text(result.core_liquid_balance);
+                        $("#realbalance2").text(result.core_liquid_balance);
                         $("#headercpu").text(nFormatterCpu(result.cpu_limit.max, 2));
                         $("#headernet").text(nFormatter(result.net_limit.max, 2));
                         $("#headerram").text(nFormatter(result.ram_quota, 2));

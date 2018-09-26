@@ -28,6 +28,11 @@ namespace AdminLTE1.Controllers
         {
             return View("player");
         }
+
+        public ActionResult Account()
+        {
+            return View("Account");
+        }
     }
         
 }
