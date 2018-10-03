@@ -712,7 +712,7 @@
                         var timestamp2 = moment.utc();
                         var timegap = timestamp1 - timestamp2;
                         var hour = parseInt(timegap / 3600000); var remaining = timegap % 3600000;
-                        var minute = parseInt(remaining / 60000); remaining = remaining % 60000
+                        var minute = parseInt(remaining / 60000); remaining = remaining % 60000;
                         var second = parseInt(remaining / 1000);
 
                         var thelefttime;
